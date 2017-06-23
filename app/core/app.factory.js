@@ -9,30 +9,36 @@
 
     function jokeFactory($http) {
         var service = {
-            getData: getData
+            getData: getData,
+
         };
 
         return service;
 
         function getData() { 
         return $http
-                .get('http://api.yomomma.info/')
+                .get('http://quotes.rest/qod.json?category=inspire' + 'quote')
+            
                 .then(function(response){
                     return response.data;
                 })
 
 
         }
-        function getInspired() { 
-        return $http
-                .get('http://quotes.rest/qod.json?category=inspire')
-                .then(function(response){
-                    return response.data;
-                })
+    }
+
+      
+
+//         function getInspired() { 
+//         return $http
+//                 .get('http://quotes.rest/qod.json?category=inspire')
+//                 .then(function(response){
+//                     return response.data;
+//                 })
     
-        }
+//         }
 
-}
+// }
 
 
 

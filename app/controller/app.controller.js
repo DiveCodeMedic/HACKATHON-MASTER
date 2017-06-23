@@ -1,41 +1,47 @@
 (function () {
     'use strict';
-    console.log('hello world');
+    // console.log('hello world');
     angular
         .module('app')
         .controller('jokeController', jokeController)
 
-    jokeController.$inject = ['jokeFactory'];
+    jokeController.$inject = ['$http'];
 
-    function jokeController(jokeFactory) {
-
+    function jokeController($http) {
         var vm = this;
-        // vm.term = term.contents.quotes.quote;
-        // console.log(vm.term);
 
-        getJoke();
+        $http
+            .get('http://quotes.rest/qod.json?category=inspire'+ 'quote')
+            .then(function(response){
+                
+                vm.joke = response.data;
+
+        // vm.term = quote.quote;
+        // console.log(vm.quote),(vm.quote);
+
+        // getJoke();
         
-        getInspiration();
+        // getInspiration();
 
-        function getJoke() {
-            jokeFactory
-                .getData()
-                .then(function (joke) {
-                    vm.joke = joke;
-                    console.log(vm.joke);
-                })
-        }
+        // function getJoke() {
+        //     jokeFactory
+        //         .getData()
+        //         .then(function (joke) {
+        //             vm.joke = joke;
+        //             console.log(vm.joke);
+        //         })
+        // }
 
-        function getInspiration() {
-            jokeFactory
-                .getInspired()
-                .then(function (term) {
-                    console.log('come on');
-                    vm.term = term;
-                    console.log(vm.term);
-                });
-        }
+        // function getJoke() {
+        //     jokeFactory
+        //         .getData()
+        //         .then(function (content) {
+            
+        //             vm.content = content;
+        //             console.log(vm.content);
+        //         });
+        // }
 
-
+            })
     }
 })();
