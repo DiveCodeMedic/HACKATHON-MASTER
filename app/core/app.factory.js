@@ -17,7 +17,7 @@
 
         function getData() { 
         return $http
-                .get('http://quotes.rest/qod.json?category=inspire' + 'quote')
+                .get('http://api.yomomma.info/')
             
                 .then(function(response){
                     return response.data;
