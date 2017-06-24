@@ -1,72 +1,124 @@
 <html lang="en" ng-app="app">
+
 <head>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
 
-  <title>Jokes</title>
-  <meta name="description" content="inspiration">
-  <meta name="author" >
+    <title>Jokes</title>
+    <meta name="description" content="inspiration">
+    <meta name="author">
 
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-  <link rel="stylesheet" href="styles.css"></script>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="styles.css">
+    </script>
 </head>
 
 <body ng-controller="jokeController as jokeCtrl">
 
-<div class="container">
-    <div class="jumbotron">
-    <h1>The Daily Survival Page</h1>
-    </div>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Your Daily Survival Page</h1>
+        </div>
+
+<!--MY buttons for the page-->
+        <table class='table table-striped'>
+            <thead>
+                <div>
+                    <tr>
+                        <label>HUMOR</label><br>
+                        <input type=button onClick="parent.location = 'http://api.yomomma.info/'" value='Click here'>
+                    </tr>
+                </div>
+                <div>
+                    <label> Daily Yo Momma Jokes</label>
+                </div>
+            </thead>
+        </table>
+        <table class='table table-striped'>
+            <thead>
+                <div>
+                    <tr>
+                        <label>INSPIRATION</label><br>
+                        <input type=button onClick="parent.location = 'http://quotes.rest/qod.json?category=inspire'" value='Click here'>
+                    </tr>
+                </div>
+                <div>
+                    <label> Daily Quotes</label>
+                </div>
+            </thead>
+        </table>
+            <table class='table table-striped'>
+            <thead>
+                <div>
+                    <tr>
+                        <label>HUMOR</label><br>
+                        <input type=button onClick="parent.location = 'http://api.yomomma.info/'" value='Click here'>
+                    </tr>
+                </div>
+                <div>
+                    <label> Daily Yo Momma Jokes</label>
+                </div>
+            </thead>
+        </table>
 
 
+<body>
 
+<h2 class="w3-center"></h2>
 
-<!--<label id="demo" onclick="myFunction()">humor</label>
+<div class="w3-content w3-section" style="max-width:500px">
+  <img class="mySlides" src="https://unsplash.it/200/300/?random" style="width:100%">
+  <img class="mySlides" src="https://unsplash.it/200/300/?random" style="width:100%">
+  <img class="mySlides" src="https://unsplash.it/200/300/?random" style="width:100%">
+</div>
+
 <script>
-function myFunction() {
-    document.getElementById('demo').innerHTML = "http://api.yomomma.info/";
-}
-</script>-->
+var myIndex = 0;
+carousel();
 
-<table class ='table table-striped'>
-  <thead>
-    <div>
-    <tr>
-    <label>HUMOR</label><br>
-    <button >Daily Yo' Momma Jokes</button>
-    </tr>
-    </div>
-    <div>
-    <tr>
-    <label>INSPIRATION</label><br>
-    <button >Daily Yo' Momma Jokes</button>
-    </tr>
-    </div>
-
-<div>
-    <label id="demo" onclick="myFunction()">humor</label>
-<script>
-function myFunction() {
-    document.getElementById('demo').innerHTML = "http://api.yomomma.info/";
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 4000); // Change image every 4 seconds
 }
 </script>
-</div>
-    
-   
-    <p>{{jokeCtrl.joke.joke}}</p>
-    <p>{{jokeCtrl.term}}</p>
-</div>
+</body>
 
 
 
-  <script src="bower_components/jquery/dist/jquery.js"></script>
-  <script src="bower_components/angular/angular.min.js"></script>
-  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-  <script src="app/app.module.js"></script>
-  <script src="app/controller/app.controller.js"></script>
-  <script src="app/core/app.factory.js"></script>
+
+        <!--<div>
+    <button id="demo" onclick="myFunction()">Daily Yo' Momma Jokes</button>
+<script>
+function myFunction() {
+    document.getElementById('demo').innerHTML = 'http://api.yomomma.info/';
+}
+</script>
+</div>-->
+
+
+
+
+
+
+        <p>{{jokeCtrl.joke.joke}}</p>
+        <p>{{jokeCtrl.term}}</p>
+    </div>
+
+
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="app/app.module.js"></script>
+    <script src="app/controller/app.controller.js"></script>
+    <script src="app/core/app.factory.js"></script>
 
 </body>
+
 </html>
-
-
- 

@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    // console.log('hello world');
+    console.log('hello world');
     angular
         .module('app')
         .controller('jokeController', jokeController)
@@ -11,36 +11,36 @@
         var vm = this;
 
         $http
-            .get('http://quotes.rest/qod.json?category=inspire'+ 'quote')
+            .get('http://api.yomomma.info/')
             .then(function(response){
                 
                 vm.joke = response.data;
 
-        // vm.term = quote.quote;
+        // vm.data = data.data;
         // console.log(vm.quote),(vm.quote);
 
         // getJoke();
         
         // getInspiration();
 
-        // function getJoke() {
-        //     jokeFactory
-        //         .getData()
-        //         .then(function (joke) {
-        //             vm.joke = joke;
-        //             console.log(vm.joke);
-        //         })
-        // }
+        function getJoke() {
+            jokeFactory
+                .getData()
+                .then(function (joke) {
+                    vm.joke = joke;
+                    console.log(vm.joke);
+                })
+        }
 
-        // function getJoke() {
-        //     jokeFactory
-        //         .getData()
-        //         .then(function (content) {
+        function getInspiration() {
+            jokeFactory
+                .getData()
+                .then(function (content) {
             
-        //             vm.content = content;
-        //             console.log(vm.content);
-        //         });
-        // }
+                    vm.content = content;
+                    console.log(vm.content);
+                });
+        }
 
             })
     }
